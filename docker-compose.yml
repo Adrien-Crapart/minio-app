@@ -1,0 +1,96 @@
+version: '2.1'
+
+volumes:
+  geoserver-data:
+  geo-db-data:
+  minio_storage:
+
+services:
+  db:
+    container_name: postgres
+    image: kartoza/postgis:latest
+    volumes:
+        - geo-db-data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=data
+      - POSTGRES_USER=admin
+      - POSTGRES_PASS=password
+      - ALLOW_IP_RANGE=0.0.0.0/0
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
+
+  geoserver:
+    container_name: geoserver
+    image: kartoza/geoserver:2.24.0
+    volumes:
+      - geoserver-data:/opt/geoserver/data_dir
+    ports:
+      - "8600:8080"
+    restart: on-failure
+    environment:
+      - GEOSERVER_DATA_DIR=/opt/geoserver/data_dir
+      - ENABLE_JSONP=true
+      - MAX_FILTER_RULES=20
+      - OPTIMIZE_LINE_WIDTH=false
+      - FOOTPRINTS_DATA_DIR=/opt/footprints_dir
+      - GEOWEBCACHE_CACHE_DIR=/opt/geoserver/data_dir/gwc
+      - GEOSERVER_ADMIN_PASSWORD=geoserver
+      - GEOSERVER_ADMIN_USER=admin
+      - INITIAL_MEMORY=2G
+      - MAXIMUM_MEMORY=4G
+      - XFRAME_OPTIONS='false'
+      - SAMPLE_DATA=false
+      - GEOSERVER_CSRF_DISABLED=true
+      # STABLE_EXTENSIONS=geopkg-output-plugin,db2-plugin,charts-plugin,imagemap-plugin
+      # COMMUNITY_EXTENSIONS=gwc-sqlite-plugin,wmts-styles-plugin,s3-geotiff-plugin,pgraster-plugin,mbtiles-plugin,mbtiles-store-plugin,flatgeobuf-plugin,cog-plugin,gdal-wps-plugin 
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: curl --fail -s http://localhost:8080/ || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+
+  minio:
+    container_name: minio
+    image: minio/minio
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_storage:/data
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    command: server --console-address ":9001" /data
+
+  martin:
+    container_name: martin
+    image: urbica/martin
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      - WATCH_MODE=true
+      - DATABASE_URL=postgres://admin:password@db/data
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - frontend
