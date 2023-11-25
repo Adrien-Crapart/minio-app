@@ -1,0 +1,198 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "API de météo en fonction de la localisation",
+        "title": "Weather API",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "Your Email"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/v1",
+    "paths": {
+        "/api/v1/weather": {
+            "get": {
+                "description": "Récupère les informations météorologiques actuelles en fonction de la latitude et de la longitude",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Obtenir la météo actuelle en fonction de la localisation",
+                "operationId": "get-weather",
+                "parameters": [
+                    {
+                        "maximum": 90,
+                        "minimum": -90,
+                        "type": "number",
+                        "description": "Latitude",
+                        "name": "lat",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "maximum": 180,
+                        "minimum": -180,
+                        "type": "number",
+                        "description": "Longitude",
+                        "name": "lon",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/main.WeatherResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/files": {
+            "get": {
+                "description": "Get a list of all files with details",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get all files",
+                "operationId": "get-all-files",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/main.File"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Ajoute un fichier dans le bucket Minio",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "summary": "Ajouter un fichier",
+                "operationId": "add-file",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "Fichier à ajouter",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Fichier ajouté avec succès",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/files/{name}": {
+            "put": {
+                "description": "Modifie un fichier dans le bucket Minio",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "summary": "Modifier un fichier",
+                "operationId": "update-file",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "Nouvelle version du fichier",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Nom du fichier à modifier",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Fichier modifié avec succès",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Supprime un fichier du bucket Minio",
+                "summary": "Supprimer un fichier",
+                "operationId": "delete-file",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nom du fichier à supprimer",
+                        "name": "name",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Fichier supprimé avec succès",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "main.File": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "type": "string"
+                },
+                "downloadLink": {
+                    "type": "string"
+                },
+                "modTime": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "string"
+                }
+            }
+        },
+        "main.WeatherResponse": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "temperature": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
