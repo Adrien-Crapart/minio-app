@@ -11,54 +11,13 @@ const docTemplate = `{
         "title": "{{.Title}}",
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "email": "Your Email"
+            "email": "adrien.crapart@gmail.com"
         },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/v1/weather": {
-            "get": {
-                "description": "Récupère les informations météorologiques actuelles en fonction de la latitude et de la longitude",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "Obtenir la météo actuelle en fonction de la localisation",
-                "operationId": "get-weather",
-                "parameters": [
-                    {
-                        "maximum": 90,
-                        "minimum": -90,
-                        "type": "number",
-                        "description": "Latitude",
-                        "name": "lat",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "maximum": 180,
-                        "minimum": -180,
-                        "type": "number",
-                        "description": "Longitude",
-                        "name": "lon",
-                        "in": "query",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/main.WeatherResponse"
-                        }
-                    }
-                }
-            }
-        },
         "/files": {
             "get": {
                 "description": "Get a list of all files with details",
@@ -185,17 +144,6 @@ const docTemplate = `{
                     "type": "string"
                 }
             }
-        },
-        "main.WeatherResponse": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "temperature": {
-                    "type": "number"
-                }
-            }
         }
     }
 }`
@@ -206,8 +154,8 @@ var SwaggerInfo = &swag.Spec{
 	Host:             "localhost:3000",
 	BasePath:         "/v1",
 	Schemes:          []string{"http"},
-	Title:            "Weather API",
-	Description:      "API de météo en fonction de la localisation",
+	Title:            "Catalizor",
+	Description:      "API de gestion de fichier",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

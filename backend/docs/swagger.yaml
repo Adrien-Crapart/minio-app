@@ -15,52 +15,15 @@ definitions:
       tags:
         type: string
     type: object
-  main.WeatherResponse:
-    properties:
-      description:
-        type: string
-      temperature:
-        type: number
-    type: object
 host: localhost:3000
 info:
   contact:
-    email: Your Email
-  description: API de météo en fonction de la localisation
+    email: adrien.crapart@gmail.com
+  description: API de gestion de fichier
   termsOfService: http://swagger.io/terms/
-  title: Weather API
+  title: Catalizor
   version: "1.0"
 paths:
-  /api/v1/weather:
-    get:
-      consumes:
-      - application/json
-      description: Récupère les informations météorologiques actuelles en fonction
-        de la latitude et de la longitude
-      operationId: get-weather
-      parameters:
-      - description: Latitude
-        in: query
-        maximum: 90
-        minimum: -90
-        name: lat
-        required: true
-        type: number
-      - description: Longitude
-        in: query
-        maximum: 180
-        minimum: -180
-        name: lon
-        required: true
-        type: number
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/main.WeatherResponse'
-      summary: Obtenir la météo actuelle en fonction de la localisation
   /files:
     get:
       description: Get a list of all files with details
