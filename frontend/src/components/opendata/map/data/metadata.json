@@ -1,0 +1,31 @@
+[
+  {
+    "website": "https://data.grandparissud.fr/explore/?sort=modified",
+    "scale_map": "region",
+    "region_id": "11",
+    "department_ids": ["75", "77", "78", "91", "92", "93", "94", "95"],
+    "datasets_info": "https://data.grandparissud.fr/api/explore/v2.1/catalog/datasets?include_app_metas=true&lang=fr&limit=10&offset=10&order_by=modified+DESC&timezone=Europe%2FBerlin",
+    "dataset_add_date": "2023-12-11T21:13:00",
+    "datasets": [
+      {
+        "datasetid": "",
+        "recordid": "",
+        "total_count": "",
+        "title": "",
+        "description": "",
+        "theme": "Environnement",
+        "keywords": ["Ecologie"],
+        "license": "",
+        "licence_url": "",
+        "created": "",
+        "modified": "",
+        "map_view": true,
+        "analysis_view": true,
+        "table_view": true,
+        "export": false,
+        "api_view": true,
+        "download_count": 0
+      }
+    ]
+  }
+]

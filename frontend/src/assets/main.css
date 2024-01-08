@@ -1,25 +1,47 @@
-body {
-  display: flex;
-  position: absolute;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --primary-color: #3f51b5;
+  --secondary-color: #f50057;
+  --dark-color: #181818;
+  --light-dark-color: #c5c5c5;
+  --light-color: #fff;
+  --danger-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --info-color: #2196f3;
+  --border-radius: 0.5rem;
+  --transition: all 0.3s linear;
+
+}
+
+*{
   margin: 0;
   padding: 0;
-  top: 0;
-  left: 0;
   box-sizing: border-box;
-  list-style-type: none;
-  width: 100%;
-  height: 100%;
-  font-family: sans-serif
+  font-family: 'Monserrat',sans-serif;
 }
 
 #app {
+  display: flex;
+  list-style-type: none;
+  background-color: #c9d6ff;
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-main {
+.row{
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  height: 95vh;
 }

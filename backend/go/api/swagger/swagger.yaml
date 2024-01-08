@@ -1,0 +1,52 @@
+openapi: 3.0.0
+info:
+  title: Minio App API
+  description: API for uploading files to Minio S3
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+paths:
+  /upload:
+    post:
+      summary: Upload a file to Minio
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                message: File uploaded successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              example:
+                error: File not provided
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Failed to upload file to Minio
+  /swagger/{any}:
+    get:
+      summary: Swagger UI
+      parameters:
+        - name: any
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation

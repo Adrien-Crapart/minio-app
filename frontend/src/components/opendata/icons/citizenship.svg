@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43.9" height="29.101" viewBox="0 0 43.9 29.101">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1343" data-name="Rectangle 1343" width="43.9" height="29.101" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_8722" data-name="Groupe 8722" transform="translate(0 0)">
+    <g id="Groupe_8684" data-name="Groupe 8684" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <path id="Tracé_57231" data-name="Tracé 57231" d="M37.159,0H6.741A6.847,6.847,0,0,0,0,6.934V22.167A6.847,6.847,0,0,0,6.741,29.1H37.159A6.847,6.847,0,0,0,43.9,22.167V6.934A6.848,6.848,0,0,0,37.159,0M42.6,22.167a5.527,5.527,0,0,1-5.441,5.6H6.741a5.527,5.527,0,0,1-5.441-5.6V6.934a5.527,5.527,0,0,1,5.441-5.6H37.159a5.527,5.527,0,0,1,5.441,5.6Z" transform="translate(0 0)" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+      <path id="Tracé_57232" data-name="Tracé 57232" d="M19.463,16.6a3.864,3.864,0,0,0,1.45-3.028,3.728,3.728,0,1,0-7.453,0A3.861,3.861,0,0,0,15,16.671a4.954,4.954,0,0,0-2.491,4.321v5.422a.678.678,0,0,0,.19.473,6.4,6.4,0,0,0,4.6,1.858,6.407,6.407,0,0,0,4.6-1.858.679.679,0,0,0,.19-.473V20.992A4.946,4.946,0,0,0,19.463,16.6m-2.277-5.524a2.5,2.5,0,1,1-2.426,2.5,2.464,2.464,0,0,1,2.426-2.5M20.8,26.126a5.336,5.336,0,0,1-6.982,0V20.992a3.492,3.492,0,1,1,6.982,0Z" transform="translate(-6.162 -4.653)" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+      <path id="Tracé_57233" data-name="Tracé 57233" d="M57.578,12.173H42.295a.669.669,0,0,0,0,1.338H57.578a.669.669,0,0,0,0-1.338" transform="translate(-20.507 -5.818)" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+      <path id="Tracé_57234" data-name="Tracé 57234" d="M57.578,21.783H42.295a.669.669,0,0,0,0,1.338H57.578a.669.669,0,0,0,0-1.338" transform="translate(-20.507 -10.41)" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+      <path id="Tracé_57235" data-name="Tracé 57235" d="M57.578,31.393H42.295a.669.669,0,0,0,0,1.338H57.578a.669.669,0,0,0,0-1.338" transform="translate(-20.507 -15.003)" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+      <path id="Tracé_57236" data-name="Tracé 57236" d="M57.578,41H42.295a.669.669,0,0,0,0,1.338H57.578a.669.669,0,0,0,0-1.338" transform="translate(-20.507 -19.596)" fill="#354bcf" stroke="#354bcf" stroke-width="0.5"/>
+    </g>
+  </g>
+</svg>
