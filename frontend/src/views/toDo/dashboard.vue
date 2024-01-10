@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
 form {
   background: white;
   padding: 20px;

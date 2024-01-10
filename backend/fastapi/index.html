@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Interface</title>
+</head>
+<body>
+    <h1>Chat Interface</h1>
+    <input id="channel" type="text" placeholder="Enter channel">
+    <input id="user_id" type="text" placeholder="Enter user ID">
+    <button onclick="connect()">Connect</button>
+    <input id="message" type="text" placeholder="Enter message">
+    <button onclick="sendMessage()">Send</button>
+    <ul id="messages"></ul>
+
+    <script>
+        var websocket;
+        function connect() {
+            var channel = document.getElementById('channel').value;
+            var user_id = document.getElementById('user_id').value;
+            websocket = new WebSocket(`ws://localhost:8000/ws/${channel}/${user_id}`);
+            websocket.onmessage = function(event) {
+                var messages = document.getElementById('messages');
+                var message = document.createElement('li');
+                message.textContent = event.data;
+                messages.appendChild(message);
+            };
+        }
+
+        function sendMessage() {
+            var message = document.getElementById('message').value;
+            websocket.send(message);
+        }
+    </script>
+</body>
+</html>

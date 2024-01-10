@@ -12,20 +12,25 @@ const router = createRouter({
     {
       path: '/file-manager',
       name: 'file-manager',
-      component: () => import('@/views/FileManager.vue')
+      component: () => import('@/views/filemanager/FileManager.vue')
     },
     {
-      path: '/explore',
+      path: '/opendata/explore',
       name: 'explore',
       component: () => import('@/views/opendata/ExplorePage.vue')
     },
     {
-      path: '/contribute',
+      path: '/opendata/contribute',
       name: 'contribute',
       component: () => import('@/views/opendata/ContributePage.vue')
     },
     {
-      path: '/visualize',
+      path: '/to-do',
+      name: 'to-do',
+      component: () => import('@/views/toDo/dashboard.vue')
+    },
+    {
+      path: '/opendata/visualize',
       name: 'visualize',
       component: () => import('@/views/opendata/VisualizePage.vue')
     },
@@ -37,4 +42,4 @@ const router = createRouter({
   ]
 })
 
-export default router
+export default router;

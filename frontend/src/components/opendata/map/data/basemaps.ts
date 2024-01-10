@@ -12,10 +12,34 @@ export const basemaps = [
     layer_group: 'Fond de cartes',
     layer_order: 1,
     imageSrc: './src/assets/ic_default-1x.png',
-    layer: new TileLayer({ source: new OSM() })
+    layer: new TileLayer({
+      opacity: 1,
+      source: new TileWMS({
+        url: 'http://s.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+        params: {
+          LAYERS: 'OI.OrthoimageCoverage.HR',
+          TILED: true,
+          FORMAT: 'image/png'
+        },
+        serverType: 'geoserver',
+        visible: true,
+        transition: 0
+      })
+    })
   },
   {
     id: 2,
+    title: 'OSM',
+    visible: true,
+    type: 'TileLayer',
+    legend: '',
+    layer_group: 'Fond de cartes',
+    layer_order: 1,
+    imageSrc: './src/assets/ic_default-1x.png',
+    layer: new TileLayer({ source: new OSM() })
+  },
+  {
+    id: 3,
     title: 'Photo Aérienne',
     visible: false,
     type: 'TileWMS',
