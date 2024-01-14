@@ -1,22 +1,8 @@
 import { createStore } from 'vuex'
-
-interface RootState {
-  currentUserId: string | null;
-}
+import defaultBoard from '@/composables/trello/default-board.js';
 
 export default createStore({
-  state: () => ({
-    currentUserId: null,
-  } as RootState),
-  getters: {
-  },
-  mutations: {
-    setCurrentUser(state, userId) {
-      state.currentUserId = userId;
-    },
-  },
-  actions: {
-  },
-  modules: {
+  state: {
+    board: defaultBoard
   }
-})
+});

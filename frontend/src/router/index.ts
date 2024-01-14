@@ -15,29 +15,41 @@ const router = createRouter({
       component: () => import('@/views/filemanager/FileManager.vue')
     },
     {
-      path: '/opendata/explore',
-      name: 'explore',
-      component: () => import('@/views/opendata/ExplorePage.vue')
-    },
-    {
-      path: '/opendata/contribute',
-      name: 'contribute',
-      component: () => import('@/views/opendata/ContributePage.vue')
-    },
-    {
-      path: '/to-do',
-      name: 'to-do',
-      component: () => import('@/views/toDo/dashboard.vue')
-    },
-    {
-      path: '/opendata/visualize',
-      name: 'visualize',
-      component: () => import('@/views/opendata/VisualizePage.vue')
+      path: '/opendata',
+      redirect: { path: "/opendata" },
+      component: () => import('@/views/opendata/ExplorePage.vue'),
+      children: [
+        {
+          path: '/explore',
+          name: 'explore',
+          component: () => import('@/views/opendata/ExplorePage.vue')
+        },
+        {
+          path: '/contribute',
+          name: 'contribute',
+          component: () => import('@/views/opendata/ContributePage.vue')
+        },
+        {
+          path: '/visualize',
+          name: 'visualize',
+          component: () => import('@/views/opendata/VisualizePage.vue')
+        }
+      ]
     },
     {
       path: '/messages',
       name: 'messages',
       component: () => import('@/views/messages/MessagesView.vue')
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: () => import('@/views/todo/TodoPage.vue')
+    },
+    {
+      path: '/trello',
+      name: 'trello',
+      component: () => import('@/views/trello/TrelloPage.vue')
     }
   ]
 })

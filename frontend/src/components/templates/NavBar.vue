@@ -44,10 +44,10 @@
   <nav class="navbar">
     <ul>
       <li><router-link to="/">Accueil</router-link></li>
-      <li><router-link to="/explore">Explorer</router-link></li>
-      <li><router-link to="/visualize">Visualiser</router-link></li>
-      <li><router-link to="/contribute">Contribuer</router-link></li>
-      <li class="api-button"><router-link to="/api">API</router-link></li>
+      <!--<li><router-link to="/opendata/explore">Explorer</router-link></li>
+      <li><router-link to="/opendata/visualize">Visualiser</router-link></li>
+      <li><router-link to="/opendata/contribute">Contribuer</router-link></li>
+      <li class="api-button"><router-link to="/opendata/api">API</router-link></li>-->
     </ul>
   </nav>
   </header>

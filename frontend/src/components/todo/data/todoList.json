@@ -1,0 +1,55 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "user": "John",
+      "creationDate": "2022-01-01",
+      "title": "Task 1",
+      "description": "This is the description for Task 1",
+      "tags": ["tag1", "tag2"],
+      "users": [
+        "https://randomuser.me/api/portraits/med/men/75.jpg",
+        "https://randomuser.me/api/portraits/med/men/74.jpg",
+        "https://randomuser.me/api/portraits/med/men/73.jpg"
+      ],
+      "links": ["link1", "link2"],
+      "messages": ["message1", "message2"],
+      "status": "inprogress",
+      "updateDate": null
+    },
+    {
+      "id": "2",
+      "user": "Jane",
+      "creationDate": "2022-01-02",
+      "title": "Task 2",
+      "description": "This is the description for Task 2",
+      "tags": ["tag3", "tag4"],
+      "users": [
+        "https://randomuser.me/api/portraits/med/men/75.jpg",
+        "https://randomuser.me/api/portraits/med/men/74.jpg",
+        "https://randomuser.me/api/portraits/med/men/73.jpg"
+      ],
+      "links": ["link3", "link4"],
+      "messages": ["message3", "message4"],
+      "status": "todo",
+      "updateDate": null
+    },
+    {
+      "id": "3",
+      "user": "Bob",
+      "creationDate": "2022-01-03",
+      "title": "Task 3",
+      "description": "This is the description for Task 3",
+      "tags": ["tag5", "tag6"],
+      "users": [
+        "https://randomuser.me/api/portraits/med/men/75.jpg",
+        "https://randomuser.me/api/portraits/med/men/74.jpg",
+        "https://randomuser.me/api/portraits/med/men/73.jpg"
+      ],
+      "links": ["link5", "link6"],
+      "messages": ["message5", "message6"],
+      "status": "completed",
+      "updateDate": null
+    }
+  ]
+}
